@@ -3,7 +3,7 @@ _rule:
   name: ansible
   version: "2.9.0"
   build_path: "{{playbook_dir}}/build"
-  rootLocation: "/mnt/synotabitha/ansible/photon-01"
+  rootLocation: "/mnt/synotabitha/ansible/ansible-helper"
 
 ansible:
   name: "{{_rule.name}}"
