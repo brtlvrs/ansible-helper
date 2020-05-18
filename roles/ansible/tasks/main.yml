@@ -10,14 +10,15 @@
   loop:
   - ansible
 
-- name: "remove docker image: {{ansible.docker.image.name}}:{{ansible.docker.image.tag}}" 
+- name: "remove docker image: {{ansible.fullname}}:{{ansible.tag}}" 
   tags:
+    - never
     - rm_image
     - buid
     - rm_all
   docker_image:
-    name: "{{ansible.docker.image.name}}" 
-    tag: "{{ansible.docker.image.tag}}" 
+    name: "{{ansible.fullname}}" 
+    tag: "{{ansible.tag}}" 
     state: absent
 
 - name: check build folder
@@ -33,6 +34,7 @@
 
 - name: bugfix 'invalid selinux context' - create config.xml
   tags:
+    - never
     - build
     - archive
   file:
@@ -43,6 +45,7 @@
 
 - name: templating build content
   tags:
+    - never
     - Archive
     - build
   template:
@@ -53,6 +56,7 @@
 
 - name: "build docker image: {{ansible.fullname}}:{{ansible.tag}}" 
   tags:
+    - never
     - build
     - Archive
   docker_image:
@@ -151,7 +155,6 @@
 
 - name: help
   tags:
-    - never
     - help
   debug:
     var:
