@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+docker_img="{{ansible.name}}:{{ansible.tag}}"
+
+docker run --rm -it \
+  -v $(pwd):/ansible/playbooks \
+  -v /var/log/ansible/ansible.log \
+ $docker_img "$@"
