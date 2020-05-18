@@ -113,8 +113,7 @@ ansible-playbook playbook-FAH.yaml --tags help
 ```
 
 |tag|remove<br>image|build<br>image|Archive<br>image|Remove<br>build<br>folder|
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-||
+|---|:---:|:---:|:---:|:---:|
 |build|x|x||x
 |build_only|x|x||x
 ||
