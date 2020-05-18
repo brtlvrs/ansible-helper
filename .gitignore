@@ -1,0 +1,5 @@
+/archive/*
+/build/.*
+.vault-password.txt
+inventory.yml
+.github_keyfile.key
