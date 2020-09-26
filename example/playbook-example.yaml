@@ -1,0 +1,6 @@
+---
+    - hosts: builder
+      gather_facts: yes
+      become: true
+      roles:
+        - role: hello-world
