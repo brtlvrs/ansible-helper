@@ -1,0 +1,24 @@
+---
+#
+# Playbook: playbook-hostPrep.yaml
+#
+#  Ansible playbook for doinh host preperations
+#  instructions are inspired by https://blog.confirm.ch/docker-ansible-on-rhel-centos-7/
+#
+
+  - hosts: builder
+    tasks:
+    - name: make sure docker-python RPM is not installed
+      yum:
+        name: docker-python
+        state: absent    
+ 
+    - name: make sure python pip is installed
+      yum:
+        name: python-pip
+        state: present            
+
+    - name: make sure required PyPi packages are installed
+      pip:
+        name: docker-py
+        state: present

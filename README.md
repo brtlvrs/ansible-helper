@@ -21,6 +21,7 @@ In this way you can use a certian version of ansible, without having it installe
 
 |version|Ansible<br>version|History|
 |---|---|---|
+|0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
 |0.0.1|2.9.0|start
 
 ## My environment
@@ -46,77 +47,39 @@ Details:
 ||From| Alpine|3.7
 |||Ansible|2.9.0|
 
+## build
+
+To build the ansible-helper image execute 
+```bash
+./install
+```
+
+This will build the docker image ansible:2.9.0 and copy bash scripts to /usr/local/bin
+
 ## Run
 
-There is no run tag in the playbook.
-A small script 'ah' is placed in /usr/local/bin.
-It'll run docker run -it for you. If no parameters are given then you enter in to the container, else it will run interactivly the given parameters.
+To run ansible helper use
+cmd| explenation
+|---|---|
+ah| ansible helper cmdlet, use the ansible cmdlets as arguments.
+ah-playbook| run ansible-playbook cmdlet. Alternative to 'ah ansible-playbook'
 
-To get the ansible enviroment run
+### how it works
 
+Both ah and ah-playbook will run the following 
 ```bash
-ah
+docker_img="ansible:latest"
+
+docker run --rm -it \
+  -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
+  -v ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub \
+  -v $(pwd):/ansible/playbooks \
+  -v /var/log/ansible/ansible.log \
+  $docker_img "$@"
 ```
 
-The following prompt shows that you are running inside the docker container.
+This will run a docker container interactively with the ansible:latest image. It will mount the id_rsa files, making it possible to connect to the local host. And mounts the local folder under /ansible/playbooks.
+ah-playbook command ends withansible-playbook "$@" instead of only "$@"
 
-```bash
-root@ansible-helper [ /ansible/playbooks ]#
-```
 
-The folder from where you start ah is presented as a volume to /ansible/playbooks.
-
-Alternative
-
-You can run your ansible playbook or other command directly without entering the container, as follows
-
-```bash
-ah ansible-playbook playbook-lightsOut.yaml --tags run
-```
-
-This will run the command ansible-playbook directly inside the ansible container. The folder from which this is run needs to contain the playbook.
-See also the original blog pos that inspired this idea.
-
-## build and archive
-
-It is also possible to only build, or build and archive the docker image.
-Archiving is usefull when you want to use the same image on other docker instances.
-I have it also running on a Synology DSM.
-
-To only build the image.
-The container will be stopped and removed before the image is rebuild.
-
-```bash
-ansible-playbook playbook-ansible.yaml --tags build
-```
-
-To only archive the image.
-
-```bash
-ansible-playbook playbook-ansible.yaml --tags archive_only
-```
-
-Importing an running the archived image on another docker instance
-
-```bash
-docker load < (name of archive).tar
-
-```
-
-## tags
-
-Tags are used to run a selection of the tasks.
-Run below code, to display the functions of the tags
-
-```bash
-ansible-playbook playbook-FAH.yaml --tags help
-```
-
-|tag|remove<br>image|build<br>image|Archive<br>image|Remove<br>build<br>folder|
-|---|:---:|:---:|:---:|:---:|
-|build|x|x||x
-|build_only|x|x||x
-||
-|archive|x|x|x|x
-
-## Todo
+See the example folder for an example of an ansible structure you can use.

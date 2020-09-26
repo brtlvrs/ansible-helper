@@ -1,0 +1,9 @@
+---
+#
+# Just an Ansible example playbook, using the Ansible file and folder structure.
+#
+- hosts: builder
+  gather_facts: yes
+  become: true
+  roles:
+  - role: hello-world

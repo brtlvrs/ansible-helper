@@ -1,6 +1,0 @@
----
-- hosts: photon-01
-  gather_facts: yes
-  become: true
-  roles:
-    - role: ansible

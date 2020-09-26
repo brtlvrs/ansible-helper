@@ -1,6 +1,6 @@
 FROM alpine:3.7
  # see https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container
-ENV ANSIBLE_VERSION "{{_rule.version}}"
+ENV ANSIBLE_VERSION "2.9.0"
  
 ENV BUILD_PACKAGES \
   bash \
@@ -18,11 +18,7 @@ ENV BUILD_PACKAGES \
   py-pip \
   py-yaml \
   ca-certificates
- 
-# If installing ansible@testing
-#RUN \
-#	echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> #/etc/apk/repositories
- 
+
 RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
@@ -61,8 +57,7 @@ ENV ANSIBLE_SSH_PIPELINING True
 ENV PYTHONPATH /ansible/lib
 ENV PATH /ansible/bin:$PATH
 ENV ANSIBLE_LIBRARY /ansible/library
+# ansible prompt
 ENV PS1="\[\e[0;33m\]\u@ansible-helper [ \[\e[0m\]\w\[\e[0;33m\] ]# \[\e[0m\]"
  
 WORKDIR /ansible/playbooks
- 
-#ENTRYPOINT ["ansible-playbook"]
