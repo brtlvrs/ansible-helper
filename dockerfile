@@ -1,7 +1,6 @@
-FROM alpine:3.7
+FROM alpine:3.11
  # see https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container
 ENV ANSIBLE_VERSION "2.9.0"
- 
 ENV BUILD_PACKAGES \
   bash \
   curl \
@@ -9,14 +8,14 @@ ENV BUILD_PACKAGES \
   openssh-client \
   sshpass \
   git \
-  python \
-  py-boto \
-  py-dateutil \
-  py-httplib2 \
-  py-jinja2 \
-  py-paramiko \
-  py-pip \
-  py-yaml \
+  python3 \
+  py3-boto \
+  py3-dateutil \
+  py3-httplib2 \
+  py3-jinja2 \
+  py3-paramiko \
+  py3-pip \
+  py3-yaml \
   ca-certificates
 
 RUN set -x && \
@@ -27,18 +26,18 @@ RUN set -x && \
       musl-dev \
       libffi-dev \
       openssl-dev \
-      python-dev && \
+      python3-dev && \
     \
     echo "==> Upgrading apk and system..."  && \
     apk update && apk upgrade && \
     \
     echo "==> Adding Python runtime..."  && \
     apk add --no-cache ${BUILD_PACKAGES} && \
-    pip install --upgrade pip && \
-    pip install python-keyczar docker && \
+    pip3 install --upgrade pip && \
+    pip3 install python-keyczar docker && \
     \
     echo "==> Installing Ansible..."  && \
-    pip install ansible==${ANSIBLE_VERSION} && \
+    pip3 install ansible==${ANSIBLE_VERSION} && \
     \
     echo "==> Cleaning up..."  && \
     apk del build-dependencies && \
@@ -56,7 +55,8 @@ ENV ANSIBLE_ROLES_PATH /ansible/playbooks/roles
 ENV ANSIBLE_SSH_PIPELINING True
 ENV PYTHONPATH /ansible/lib
 ENV PATH /ansible/bin:$PATH
-ENV ANSIBLE_LIBRARY /ansible/library
+ENV ANSIBLE_LIBRARY /ansible/library 
+
 # ansible prompt
 ENV PS1="\[\e[0;33m\]\u@ansible-helper [ \[\e[0m\]\w\[\e[0;33m\] ]# \[\e[0m\]"
  
