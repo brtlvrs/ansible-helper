@@ -81,4 +81,5 @@ docker run --rm -it \
 This will run a docker container interactively with the ansible:latest image. It will mount the id_rsa files, making it possible to connect to the local host. And mounts the local folder under /ansible/playbooks.
 ah-playbook command ends withansible-playbook "$@" instead of only "$@"
 
+
 See the example folder for an example of an ansible structure you can use.
