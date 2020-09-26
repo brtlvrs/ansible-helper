@@ -40,6 +40,8 @@ To build the ansible-helper image execute the following
 ```
 
 This will build the docker image ansible:2.9.0 and copy bash scripts to /usr/local/bin
+The image is also available at dockerhub.
+The wrapper scripts are copied inside the image. See the readme.md inside the scripts folder.
 
 ## Usage
 
