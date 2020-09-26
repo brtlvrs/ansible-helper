@@ -1,4 +1,4 @@
-#!/usr/bin bash
+#!/usr/bin/bash
 
 docker build -t ansible:2.9.0 .
 docker tag ansible:2.9.0 ansible:latest
