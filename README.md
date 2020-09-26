@@ -1,6 +1,6 @@
 # Brtlvrs Ansible-Helper project
 
-|version| 0.2 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|
+|version| 0.3 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|
 |---|---|---|---|---|
 
 This repository contains my approach for building, maintaining an running an ansible docker container.
@@ -20,6 +20,7 @@ In this way you can use a certian version of ansible, without having it installe
 
 |version|Ansible<br>version|History|
 |---|---|---|
+|0.3|2.9.0| updated python to v3
 |0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
 |0.0.1|2.9.0|start
 
