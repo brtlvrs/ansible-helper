@@ -18,11 +18,11 @@ In this way you can use a certian version of ansible, without having it installe
 
 ## History
 
-|version|Ansible<br>version|History|
-|---|---|---|
-|0.3|2.9.0| updated python to v3
-|0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
-|0.0.1|2.9.0|start
+|version|Ansible<br>version|python<br>version|History|
+|---|---|---|---|
+|0.3|2.9.0|3.8.2| updated python to v3
+|0.2|2.9.0||moved from ansible playbook, to scripts for building ansible image
+|0.0.1|2.9.0||start
 
 ## Preruiqisites
 
