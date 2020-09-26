@@ -1,4 +1,7 @@
 FROM alpine:3.11
+
+MAINTAINER brtlvrs
+
  # see https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container
 ENV ANSIBLE_VERSION "2.9.0"
 ENV BUILD_PACKAGES \
