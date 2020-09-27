@@ -1,4 +1,8 @@
 FROM alpine:3.11
+
+MAINTAINER brtlvrs
+
+
  # see https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container
 ENV ANSIBLE_VERSION "2.9.0"
 ENV BUILD_PACKAGES \
@@ -47,6 +51,9 @@ RUN set -x && \
     mkdir -p /etc/ansible /ansible && \
     echo "[local]" >> /etc/ansible/hosts && \
     echo "localhost" >> /etc/ansible/hosts
+
+RUN mkdir -p /2installOnHost
+COPY scripts/ /2installOnHost/
  
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
