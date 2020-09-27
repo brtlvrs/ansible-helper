@@ -70,3 +70,4 @@ This will run a docker container interactively with the ansible:latest image. It
 ah-playbook command ends withansible-playbook "$@" instead of only "$@"
 
 See the example folder for an example of an ansible structure you can use.
+
