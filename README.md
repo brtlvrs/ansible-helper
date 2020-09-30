@@ -1,7 +1,12 @@
 # Brtlvrs Ansible-Helper project
 
+<<<<<<< HEAD
 |version| 0.4 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|
 |---|---|---|---|---|
+=======
+|version| 0.3 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|[github](https://github.com/brtlvrs/ansible-helper)|[dockerhub](https://hub.docker.com/r/brtlvrs/ansible-helper)|
+|---|---|---|---|---|---|---|
+>>>>>>> master
 
 This repository contains my approach for building, maintaining an running an ansible docker container.
 This is based on this [blog](https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container).
@@ -18,12 +23,20 @@ In this way you can use a certian version of ansible, without having it installe
 
 ## History
 
+<<<<<<< HEAD
 |version|Ansible<br>version|History|
 |---|---|---|
 |0.4|2.10.0| updated to Ansible 2.10.0 and alpine 3.12
 |0.3|2.9.0| updated python to v3
 |0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
 |0.0.1|2.9.0|start
+=======
+|version|Ansible<br>version|python<br>version|History|
+|---|---|---|---|
+|0.3|2.9.0|3.8.2| updated python to v3
+|0.2|2.9.0||moved from ansible playbook, to scripts for building ansible image
+|0.0.1|2.9.0||start
+>>>>>>> master
 
 ## Preruiqisites
 
@@ -41,6 +54,8 @@ To build the ansible-helper image execute the following
 ```
 
 This will build the docker image ansible:2.9.0 and copy bash scripts to /usr/local/bin
+The image is also available at dockerhub.
+The wrapper scripts are copied inside the image. See the readme.md inside the scripts folder.
 
 ## Usage
 
@@ -69,3 +84,4 @@ This will run a docker container interactively with the ansible:latest image. It
 ah-playbook command ends withansible-playbook "$@" instead of only "$@"
 
 See the example folder for an example of an ansible structure you can use.
+

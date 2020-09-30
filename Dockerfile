@@ -47,6 +47,9 @@ RUN set -x && \
     mkdir -p /etc/ansible /ansible && \
     echo "[local]" >> /etc/ansible/hosts && \
     echo "localhost" >> /etc/ansible/hosts
+
+RUN mkdir -p /2installOnHost
+COPY scripts/ /2installOnHost/
  
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
