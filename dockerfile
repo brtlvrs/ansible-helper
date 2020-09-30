@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.12
  # see https://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container
 ENV ANSIBLE_VERSION "2.10.0"
 ENV BUILD_PACKAGES \
