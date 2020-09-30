@@ -2,7 +2,9 @@
 
 # simple installer script, to build the ansible image and copy some scripts to /usr/local/bin
 
-docker build -t ansible:2.9.0 .
-docker tag ansible:2.9.0 ansible:latest
+tag="2.10.0"
+echo $tag
+docker build -t ansible:$tag .
+docker tag ansible:$tag ansible:latest
 cp ./scripts/ah* /usr/local/bin/
 chmod +x /usr/local/bin/*
