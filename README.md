@@ -21,6 +21,7 @@ In this way you can use a certian version of ansible, without having it installe
 
 |version|Ansible<br>version|History|
 |---|---|---|
+|2.10|2.10.0| following Ansible community version scheme
 |0.4|2.10.0| updated to Ansible 2.10.0 and alpine 3.12
 |0.3|2.9.0| updated python to v3
 |0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
