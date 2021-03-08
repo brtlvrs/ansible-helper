@@ -1,6 +1,6 @@
 # Brtlvrs Ansible-Helper project
 
-|version| 0.4 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|[github](https://github.com/brtlvrs/)|[dockerhub](https://hub.docker.com/u/brtlvrs)|
+|version| 2.10 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|[github](https://github.com/brtlvrs/)|[dockerhub](https://hub.docker.com/u/brtlvrs)|
 |---|---|---|---|---|---|---|
 
 This repository contains my approach for building, maintaining an running an ansible docker container.
