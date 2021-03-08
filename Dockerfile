@@ -50,7 +50,8 @@ RUN set -x && \
 
 RUN mkdir -p /2installOnHost
 COPY scripts/ /2installOnHost/
- 
+RUN mkdir -p /2InstallOnHost/Example
+COPY example/ /2InstallOnHost/Example
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
 ENV ANSIBLE_RETRY_FILES_ENABLED false
