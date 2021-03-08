@@ -1,6 +1,6 @@
 # Brtlvrs Ansible-Helper project
 
-|version| 2.10 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|[github](https://github.com/brtlvrs/)|[dockerhub](https://hub.docker.com/u/brtlvrs)|
+|version| 2.9 | [MIT license](LICENSE)|Copyright (c) 2020 Bart Lievers|[blog](https://vblog.bartlievers.nl)|[github](https://github.com/brtlvrs/)|[dockerhub](https://hub.docker.com/u/brtlvrs)|
 |---|---|---|---|---|---|---|
 
 This repository contains my approach for building, maintaining an running an ansible docker container.
@@ -22,6 +22,7 @@ In this way you can use a certian version of ansible, without having it installe
 |version|Ansible<br>version|History|
 |---|---|---|
 |2.10|2.10.0| following Ansible community version scheme
+|2.9|2.9.0|added for automatic build at dockerhub|
 |0.4|2.10.0| updated to Ansible 2.10.0 and alpine 3.12
 |0.3|2.9.0| updated python to v3
 |0.2|2.9.0|moved from ansible playbook, to scripts for building ansible image
@@ -62,7 +63,7 @@ Both ah and ah-playbook will run the following
 ```bash
 docker_img="ansible:latest"
 
-docker run --rm -it \
+docker run --rm --name -it \
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
   -v ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub \
   -v $(pwd):/ansible/playbooks \
