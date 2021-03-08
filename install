@@ -7,4 +7,4 @@ echo $tag
 docker build -t ansible:$tag .
 docker tag ansible:$tag ansible:latest
 cp ./scripts/ah* /usr/local/bin/
-chmod +x /usr/local/bin/*
+chmod +x /usr/local/bin/ah*
