@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker_img="ansible:latest"
+docker_img="brtlvrs/ansible-helper:latest"
 
 docker run --rm -it --name ah-playbook-$RANDOM \
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
