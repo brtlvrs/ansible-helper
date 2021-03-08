@@ -1,4 +1,6 @@
-docker_img="ansible:latest"
+#!/usr/bin/bash
+
+docker_img="brtlvrs/ansible-helper:latest"
 
 docker run --rm -name ah-$RANDOM -it \
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
