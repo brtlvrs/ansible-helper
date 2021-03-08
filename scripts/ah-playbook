@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 docker_img="brtlvrs/ansible-helper:latest"
 
