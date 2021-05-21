@@ -13,7 +13,7 @@ This is the deployment script for deploying the ansible container in docker.
 To run the deployment run
 
 ``` #!\bin\bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/brtlvrs/ansible-helper/v0.4/deploy/deploy.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/brtlvrs/ansible-helper/v2.10/deploy/deploy.sh)"
 ```
 
 Of course you could use wget instead of curl.<br>
