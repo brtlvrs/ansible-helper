@@ -10,7 +10,7 @@ cat > /usr/local/bin/ah << 'EOF'
 #  A script wrapper for running the docker image ansible-helper interactively
 #
 
-docker_img="brtlvrs/ansible:latest"
+docker_img="brtlvrs/ansible-helper:latest"
 
 docker run --rm -it \
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
@@ -30,7 +30,7 @@ rm -f /usr/local/bin/ah-playbook
 cat > /usr/local/bin/ah-playbook << 'EOF'
 #!/usr/bin/env bash
 
-docker_img="ansible:latest"
+docker_img="brtlvrs/ansible-helper:latest"
 
 docker run --rm -it \
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
